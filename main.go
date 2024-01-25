@@ -17,4 +17,19 @@ func main() {
 		stringValue := string(block.AllData)
 		fmt.Println("Data of the block: ", stringValue)
 	}
+
+	filePath := "./xyz.txt"
+
+	cid, err := FileUpload(filePath)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	err2 := FileDownload(cid)
+	if err2 != nil {
+		fmt.Println(err2)
+		return
+	}
 }
