@@ -5,6 +5,7 @@ type Block struct {
 	PreviousBlockHash []byte
 	MyBlockHash       []byte
 	AllData           []byte
+	Nonce             int
 }
 
 type Blockchain struct {

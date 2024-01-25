@@ -8,7 +8,7 @@ import (
 )
 
 func NewBlock(data string, prevBlockHash []byte) *Block {
-	block := &Block{time.Now().Unix(), prevBlockHash, []byte{}, []byte(data)}
+	block := &Block{time.Now().Unix(), prevBlockHash, []byte{}, []byte(data), 0}
 	nonce := 0
 	for {
 		block.MyBlockHash = CalculateHash(*block, nonce)
@@ -17,6 +17,7 @@ func NewBlock(data string, prevBlockHash []byte) *Block {
 		}
 		nonce++
 	}
+	block.Nonce = nonce
 	return block
 }
 
