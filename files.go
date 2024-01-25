@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 
@@ -33,22 +32,6 @@ func FileDownload(cid string) error {
 	if err2 != nil {
 		fmt.Print("Error: ", err2)
 		return err2
-	}
-
-	retrievedFile, err3 := os.Open(outdir + "/" + cid)
-	if err3 != nil {
-		fmt.Println(err3)
-		return err3
-	}
-	defer retrievedFile.Close()
-	scanner := bufio.NewScanner(retrievedFile)
-	for scanner.Scan() {
-		fmt.Println(scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		fmt.Println("Error scanning file:", err)
-		return err
 	}
 	return nil
 }

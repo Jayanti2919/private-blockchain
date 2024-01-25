@@ -18,7 +18,7 @@ func main() {
 		fmt.Println("Data of the block: ", stringValue)
 	}
 
-	filePath := "./xyz.txt"
+	filePath := "./testVideo.mp4"
 
 	cid, err := FileUpload(filePath)
 
